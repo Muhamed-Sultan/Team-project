@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 // import 'package:wesla/Screens/splash_screen.dart';
 // import 'package:wesla/Widgets/slider.dart';
 import 'package:wesla/Screens/screen_4.dart';
+import 'package:wesla/Screens/screen_5.dart';
 
 class WeslaApp extends StatelessWidget {
   const WeslaApp({super.key});
@@ -33,6 +34,7 @@ class WeslaApp extends StatelessWidget {
           // LoginScreen(),
           // SliderWidget(),
           Screen4(),
+          Screen5(),
         ],
       ),
     );
