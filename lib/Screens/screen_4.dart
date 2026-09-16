@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wesla/Widgets/app_bar.dart';
+import 'package:wesla/Widgets/custom_button.dart';
 
 class Screen4 extends StatelessWidget {
   const Screen4({super.key});
@@ -9,78 +11,7 @@ class Screen4 extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        automaticallyImplyLeading: false,
-
-        flexibleSpace: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              IconButton(
-                onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const Screen1()),
-                  // );
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios_outlined,
-                  color: Colors.black,
-                  size: 30,
-                ),
-              ),
-
-              Transform.translate(
-                offset: const Offset(-30, 0),
-                child: Transform.scale(
-                  scale: 2.7,
-                  alignment: Alignment.centerLeft,
-                  child: Image.asset(
-                    "assets/images/logo1.png",
-                    width: 90,
-                    height: 40,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-              const Spacer(),
-              SizedBox(width: 143),
-              Container(
-                width: 40,
-                height: 40,
-                decoration: const BoxDecoration(
-                  color: Color(0xfffefaef),
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: SvgPicture.asset(
-                    "assets/icons/notifications_unread_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
-                    width: 34,
-                    height: 34,
-                    colorFilter: const ColorFilter.mode(
-                      Color(0xff0D443F),
-                      BlendMode.srcIn,
-                    ),
-                  ),
-                ),
-              ),
-              const Spacer(),
-              CircleAvatar(
-                backgroundColor: Color(0xff77AC5B),
-                child: Icon(
-                  Icons.account_circle_outlined,
-                  size: 30,
-                  color: Color(0xffffffff),
-                ),
-              ),
-              const Spacer(),
-            ],
-          ),
-        ),
-      ),
+      appBar: const CustomAppBar(),
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -92,7 +23,7 @@ class Screen4 extends StatelessWidget {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -160,8 +91,8 @@ class Screen4 extends StatelessWidget {
                 SizedBox(height: 13),
                 Center(
                   child: Container(
-                    width: double.infinity,
-                    height: 198,
+                    width: 400,
+                    height: 240,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: const Color(0xffffffff),
@@ -182,7 +113,7 @@ class Screen4 extends StatelessWidget {
                                 color: Color(0xff1A8279),
                               ),
                             ),
-                            SizedBox(height: 7),
+                            SizedBox(height: 8),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -203,7 +134,7 @@ class Screen4 extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 7),
+                            SizedBox(height: 8),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -228,11 +159,84 @@ class Screen4 extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            SizedBox(height: 8),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SvgPicture.asset(
+                                  "assets/icons/schedule.svg",
+                                  width: 24,
+                                  height: 24,
+                                  colorFilter: const ColorFilter.mode(
+                                    Color(0xffB62002),
+                                    BlendMode.srcIn,
+                                  ),
+                                ),
+                                SizedBox(width: 2),
+                                Text(
+                                  'Urgent · 2 days left',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Manrope',
+                                    color: Color(0xffB62002),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 13),
+                            Divider(
+                              color: Color(0xff216041),
+                              thickness: 2,
+                              endIndent: 30,
+                              indent: 30,
+                            ),
+                            SizedBox(height: 9),
+                            Text(
+                              'Winter clothes for 50+ childrenin\n local families.',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Manrope',
+                                color: Color(0xff1A8279),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ),
                   ),
+                ),
+                SizedBox(height: 13),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/Spare.png',
+                      width: 70,
+                      height: 70,
+                    ),
+                    Text(
+                      'Matched by WASLA AI based on your \nrequest and location.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Manrope',
+                        color: Color(0xff216041),
+                      ),
+                    ),
+                  ],
+                ),
+                CustomButton(
+                  text: 'View Match',
+                  color: Color(0xff0D443F),
+                  textStyle: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Manrope',
+                    color: Color(0xffffffff),
+                  ),
+                  ontap: () {},
                 ),
               ],
             ),
